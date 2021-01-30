@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+.d-flex {
+    display: flex;
+}
+
+.f-c {
+    flex-direction: column;
+}
+
+.f-r {
+    flex-direction: row;
+}
+
+.j-c-sa {
+    justify-content: space-around;
+}
+
+.j-c-c {
+    justify-content: center;
+}
+
+.j-c-sb {
+    justify-content: space-between;
+}
+
+.a-i-sa {
+    align-items: space-around;
+}
+
+.a-i-c {
+    align-items: center;
+}
+
+.a-i-sb {
+    align-items: space-between;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.hidden-btn {
+    display: none;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.blue {
+    color: $brightBlue !important;
+}
+
+.light {
+    background-color: $l-lightGrayishBlue !important;
+    &:before {
+        background-image: url('../../images/bg-mobile-light.jpg') !important;
+        @include breakpoint-up(large) {
+            background-image: url('../../images/bg-desktop-light.jpg') !important;
+        }
+    }
+    .checkmark {
+        background-color: $l-veryLightGrayishBlue;
+        border: 1px solid $l-lightGrayishBlue;
+    }
+    .round:hover input~.checkmark {
+        background-color: $l-lightGrayishBlue;
+    }
+    .app {
+        &__top+.checkmark {
+            background-color: $l-veryLightGrayishBlue !important;
+            border: 1px solid $l-lightGrayishBlue !important;
+        }
+        &__input-wrapper,
+        &__list,
+        &__controls-lg,
+        &__controls-sm {
+            background-color: $l-veryLightGrey !important;
+        }
+        &__item {
+            color: $l-darkGrayishBlue !important;
+            border-bottom: 1px solid $l-lightGrayishBlue;
+            &:hover {
+                border-radius: 5px;
+                background-color: $l-veryLightGrayishBlue !important;
+            }
+        }
+        &__controls-lg,
+        &__controls-sm {
+            p {
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+                &:hover {
+                    color: $l-veryDarkGrayishBlue;
+                }
+            }
+        }
+    }
+}
+
+body {
+    cursor: default !important;
+    position: relative;
+    font-family: $f-fam;
+    font-size: 0.625rem;
+    font-weight: $f-w-bold;
+    color: $d-lightGrayishBlue;
+    background-color: $d-veryDarkBlue;
+    transition: all 1s ease-in-out;
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 12.5rem;
+        background-image: url('../../images/bg-desktop-dark.jpg');
+        background-size: cover;
+        background-position: center center;
+        @include breakpoint-up(large) {
+            background-image: url('../../images/bg-desktop-dark.jpg');
+        }
+    }
+}
+
+.main-wrapper {
+    padding: 0rem 1.5625rem;
+}
+
+input {
+    margin-left: -3px;
+    background: transparent;
+    outline: none;
+    border: 0px;
+    color: $d-lightGrayishBlue;
+    font-weight: $f-w-bold;
+}
+
+input::placeholder {
+    font-weight: $f-w-bold;
+    font-size: 0.625rem;
+    color: $d-lightGrayishBlue;
+}
+
+
+/* Customize the label (the container) */
+
+.round {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all 1s ease-in-out;
+}
+
+
+/* Hide the browser's default checkbox */
+
+.round input {
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: $d-veryDarkDesaturatedBlue;
+    border: 1px solid $d-veryDarkGrayishBlue;
+    border-radius: 25px;
+    transition: all 200ms ease-in-out;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.round:hover input~.checkmark {
+    display: block;
+    background-color: $d-darkGraishBlue;
+    border-radius: 25px;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.round input:checked~.checkmark {
+    display: block;
+    background: $checkBackground;
+    border-radius: 25px;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.round input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.round .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

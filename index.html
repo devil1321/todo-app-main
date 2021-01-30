@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>To Do</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./scss/css/styles.css" rel="stylesheet" as="stylesheet" onload="this.rel='stylesheet'">
+</head>
+
+<body class="light">
+    <div class="main-wrapper">
+        <div class="hidden-btn blue"></div>
+        <div class="app">
+            <div class="app__header d-flex j-c-sb">
+                <h1>TODO</h1>
+                <div class="app__icon-wrapper">
+                    <img class="app__header-icon" src="./images/icon-sun.svg" alt="">
+                </div>
+            </div>
+            <div class="app__input-wrapper">
+                <label class="round">
+                    <input class="app__top" type="checkbox" disabled>
+                    <span class="checkmark"></span>
+                </label>
+                <input class='new-task' type="text" placeholder="Create a new todo">
+            </div>
+            <ul class="app__list" id="columns">
+            </ul>
+            <div class="app__controls-lg d-flex j-c-sa a-i-c">
+                <p class='btn-left'>5 items left</p>
+                <div class="d-flex j-c-sa a-i-c">
+                    <p class='btn-all'>All</p>
+                    <p class='btn-active'>Active</p>
+                    <p class='btn-completed'>Completed</p>
+                </div>
+                <p class='btn-clear'>Clear Completed</p>
+            </div>
+            <div class="app__controls-sm d-flex j-c-sb a-i-c">
+                <p class='btn-left'>0 items left</p>
+                <p class='btn-clear'>Clear Completed</p>
+            </div>
+            <div class="app__controls-sm buttons d-flex j-c-sb a-i-c">
+                <div class="d-flex j-c-sa a-i-c">
+                    <p class='btn-all'>All</p>
+                    <p class='btn-active'>Active</p>
+                    <p class='btn-completed'>Completed</p>
+                </div>
+            </div>
+            <p class="app__footer">Drag and drop to reorder list</p>
+        </div>
+    </div>
+
+    <script src="./js/logic.js"></script>
+    <script src="./js/theme.js"></script>
+    <script src="./js/draggable.js"></script>
+</body>
+
+</html>
