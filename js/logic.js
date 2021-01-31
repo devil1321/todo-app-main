@@ -45,7 +45,6 @@ class Tasks {
                         const { name, completed } = task
                         item = document.createElement('li');
                         item.classList = 'app__item column d-flex j-c-sb';
-                        item.setAttribute('draggable', 'true');
                         item.innerHTML = `<div class="app__task d-flex a-i-c">
                              ${completed ? 
                             `<div class="task-text d-flex a-i-c completed">`
@@ -61,7 +60,7 @@ class Tasks {
                                     <input class='completed' type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>`}
-                            ${name}
+                                ${completed ? `<p class="completed-text">${name}</p>` : `<p>${name}</p>`}
                             <img style="${completed ? 'display:block;' : 'display:none'}" class='cross' src="./images/icon-cross.svg" alt=""></div>
                         </div>`
             list.appendChild(item)
@@ -94,8 +93,10 @@ class UI {
     static changeTheme(){
         if(body.classList.contains('light')){
             body.classList.remove('light')
+            iconBtn.src = './images/icon-moon.svg'
         }else{
             body.classList.add('light')
+            iconBtn.src = './images/icon-sun.svg'
         }
     }
     static showTasks(tasks) {
@@ -104,8 +105,7 @@ class UI {
                         const { name, completed } = task
                         item = document.createElement('li');
                         item.classList = 'app__item column d-flex j-c-sb';
-                        item.setAttribute('draggable', 'true');
-
+                    
                         item.innerHTML =
                         `<div class="app__task d-flex a-i-c">
                              ${completed ? 
@@ -122,7 +122,7 @@ class UI {
                                     <input class='completed' type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>`}
-                            ${name}
+                                ${completed ?`<p class="completed-text">${name}</p>` : `<p>${name}</p>`}
                             <img style="${completed ? 'display:block;' : 'display:none'}" class='cross' src="./images/icon-cross.svg" alt=""></div>
                         </div>`
                

@@ -48,6 +48,10 @@
     text-decoration: line-through;
 }
 
+.completed-text {
+    opacity: 0.5;
+}
+
 .blue {
     color: $brightBlue !important;
 }

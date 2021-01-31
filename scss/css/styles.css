@@ -67,6 +67,10 @@
   text-decoration: line-through;
 }
 
+.completed-text {
+  opacity: 0.5;
+}
+
 .blue {
   color: #3a7bfd !important;
 }
